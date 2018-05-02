@@ -47,10 +47,6 @@
                 "hwloc/topology-windows.c"                
             }
 
-            includedirs {
-                "hwloc"
-            }
-            
             characterset("MBCS")
 
             filter "architecture:x86"
@@ -77,7 +73,8 @@
         end
 
         includedirs {
-            "include"
+            "include",
+            "hwloc"
         }
 
         zpm.export(function()
