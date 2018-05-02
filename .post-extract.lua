@@ -26,7 +26,7 @@
 
 if os.istarget("linux") or os.istarget("macosx") then
     zpm.autoreconf()
-    zpm.configure()
+    zpm.configure("--disable-libxml2")
 elseif os.istarget("windows") then
     zpm.extractfile("contrib/windows/private_config.h", "include/private/autogen/config.h")
     zpm.extractfile("contrib/windows/hwloc_config.h", "include/hwloc/autogen/config.h")
