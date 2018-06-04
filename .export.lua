@@ -26,13 +26,9 @@
     project "hwloc"
         kind "StaticLib"
 
-        files {
-            "hwloc/**.c"
-        }
+        files "hwloc/**.c"
 
-        removefiles {
-            "hwloc/topology-*.c"
-        }
+        removefiles "hwloc/topology-*.c"
 
         files {
             "hwloc/topology-noos.c",
@@ -43,11 +39,9 @@
         }
 
         if os.istarget("windows") then
-            files {
-                "hwloc/topology-windows.c"                
-            }
+            files "hwloc/topology-windows.c"            
 
-            characterset("MBCS")
+            characterset "MBCS"
 
             filter "architecture:x86"
                 undefines "HWLOC_X86_64_ARCH"
@@ -55,20 +49,18 @@
 
             filter {}
         elseif os.istarget("linux") or os.istarget("macosx") then
-            files {
-                "hwloc/topology-hardwired.c"
-            }
+            files "hwloc/topology-hardwired.c"
 
             if os.istarget("linux") then
-                files { "hwloc/topology-linux.c" }
+                files "hwloc/topology-linux.c"
             else
-                files { "hwloc/topology-darwin.c" }
+                files { 
+                    "hwloc/topology-darwin.c", 
+                    "hwloc/topology-opencl.c"
+                }
             end
 
-            defines {
-                "RUNSTATEDIR=\"/usr/local/var/run\""
-            }
-
+            defines "RUNSTATEDIR=\"/usr/local/var/run\""
             links "pthread"
         end
 
