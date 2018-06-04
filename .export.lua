@@ -58,7 +58,6 @@
                     "hwloc/topology-darwin.c", 
                     "hwloc/topology-opencl.c"
                 }
-                links "openCL.framework"
             end
 
             defines "RUNSTATEDIR=\"/usr/local/var/run\""
@@ -76,6 +75,9 @@
             filter "architecture:x86"
                 undefines "HWLOC_X86_64_ARCH"
                 defines "HWLOC_X86_32_ARCH=1"
+
+            filter "system:macosx"
+                links "openCL.framework"
 
             filter {}
         end)
