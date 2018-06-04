@@ -58,6 +58,7 @@
                     "hwloc/topology-darwin.c", 
                     "hwloc/topology-opencl.c"
                 }
+                links "OpenCL.framework"
             end
 
             defines "RUNSTATEDIR=\"/usr/local/var/run\""
