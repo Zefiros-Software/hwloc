@@ -54,7 +54,7 @@
                 defines "HWLOC_X86_32_ARCH=1"
 
             filter {}
-        elseif os.istarget("linux") or os.istarget("macos") then
+        elseif os.istarget("linux") or os.istarget("macosx") then
             files {
                 "hwloc/topology-hardwired.c"
             }
